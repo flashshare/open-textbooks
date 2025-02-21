@@ -74,19 +74,19 @@ sphinx:
     - https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js
     - https://cdn.jsdelivr.net/npm/loading-attribute-polyfill@2.1.0/dist/loading-attribute-polyfill.min.js
     mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
-    # mathjax3_config:
-    #   loader: {load: ['[tex]/ams', '[tex]/physics', '[tex]/boldsymbol']}
-    #   loader: {load: ['[tex]/autoload', '[tex]/ams']}
-    #   tex:
-    #     packages: {'[+]': ['autoload', 'ams', 'physics', 'boldsymbol']}
-    #     tags: 'ams'
-    #     macros:
-    #       "kB" : "k_\\mathrm{B}" # Boltzmann constant
-    #       "bm" : "\\boldsymbol"   # This is the bold vector command from the physics package.
-    #       "bm": "\\vb*" # This is the bold vector command from the physics package.
-    #       "bm": "\\mathbf" # This is the bold vector command from the physics package.
-    #       "inprod" : "\\innerproduct" # Inner product
-    #       "diff" : "\\pdv" # Partial derivative
+    mathjax3_config:
+      # loader: {load: ['[tex]/ams', '[tex]/physics', '[tex]/boldsymbol']}
+      # loader: {load: ['[tex]/autoload', '[tex]/ams']}
+      tex:
+        packages: {'[+]': ['autoload', 'ams', 'physics', 'boldsymbol']}
+        tags: 'ams'
+        macros:
+          "kB" : "k_\\mathrm{B}" # Boltzmann constant
+          "bm" : "\\boldsymbol"   # This is the bold vector command from the physics package.
+          "bm": "\\vb*" # This is the bold vector command from the physics package.
+          "bm": "\\mathbf" # This is the bold vector command from the physics package.
+          "inprod" : "\\innerproduct" # Inner product
+          "diff" : "\\pdv" # Partial derivative
     html_theme_options:
       # See https://sphinx-book-theme.readthedocs.io/en/stable/reference.html
       # This is double - needed if we also have the light/dark logo.
