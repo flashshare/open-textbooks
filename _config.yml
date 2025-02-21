@@ -67,6 +67,7 @@ sphinx:
   config:
     language: en
     # See https://github.com/executablebooks/jupyter-book/issues/1950
+    recursive_update: true
     suppress_warnings: ["mystnb.unknown_mime_type"]
     # html_js_files necessary for interactive plot (plotly) in ch. 2, but breaks applet in ch. 3. cf. https://jupyterbook.org/en/stable/interactive/interactive.html?highlight=html_js_files#plotly
     html_js_files:
