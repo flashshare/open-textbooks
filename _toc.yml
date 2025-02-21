@@ -1,0 +1,31 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: index
+parts:
+#  - caption: Interactive open textbooks
+#    numbered: true
+#    chapters:
+#    - file: content/OIT
+  - caption: Demonstrating markdown files
+    numbered: True # Only applies to chapters in Part 1.
+    chapters:
+    - file: content/markdown
+    - file: content/interactivemarkdown
+    - file: content/mechanicsforces
+    - file: content/vectors
+    - file: content/jupyterquiz.md
+  - caption: Demonstrating Jupyter notebooks
+    numbered: True
+    chapters:
+    - file: content/Basic_animation_demo.ipynb
+  - caption: Software
+    numbered: True
+    chapters:
+    - file: content/git
+  - caption: Index & credits
+    chapters:
+    - file: content/credits
+    - file: genindex
+    

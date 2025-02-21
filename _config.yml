@@ -1,0 +1,109 @@
+# Book settings
+# Learn more at https://jupyterbook.org/customize/config.html
+
+title: Open textbooks Demo
+author: Timon Idema
+logo: TUDelft.svg
+description: Demonstration of what can be done with a Jupyter Book. This book is meant as a template to build on.
+copyright: Delft University of Technology, CC BY 4.0
+
+# Only build files in the ToC to avoid building README, etc.
+only_build_toc_files: true
+
+# Force re-execution of notebooks on each build.
+# See https://jupyterbook.org/content/execute.html
+execute:
+  execute_notebooks: force
+
+# Define the name of the latex output file for PDF builds
+latex:
+  latex_documents:
+    targetname: book.tex
+
+# Add a bibtex file so that we can create citations
+bibtex_bibfiles:
+  - references.bib
+
+# Parse, for processing LaTeX-style math. See https://jupyterbook.org/en/stable/content/math.html#latex-style-math and https://myst-parser.readthedocs.io/en/latest/syntax/optional.html#syntax-amsmath
+parse:
+  myst_enable_extensions:
+    # don't forget to list any other extensions you want enabled,
+    # including those that are enabled by default!
+    # meaning that we have to explicitly include dollarmath!
+    # Colon-fence is to allow for ::: instead of ``` blocks.
+    - amsmath
+    - dollarmath
+
+# Information about where the book exists on the web. Note that this is overridden if we use a light/dark logo.
+repository:
+  url: https://gitlab.tudelft.nl/opentextbooks/open-textbooks-demonstration/  # Online location of your book
+  # path_to_book: docs  # Optional path to your book, relative to the repository root
+  branch: master  # Which branch of the repository should be used when creating links (optional)
+
+# HTML specific settings - see https://jupyterbook.org/en/stable/customize/config.html
+# Add GitHub / GitLab buttons to your book
+# See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
+html:
+  favicon: "content/images/favicon.ico"
+  home_page_in_navbar: true
+  use_edit_page_button: true
+  use_repository_button: true
+  use_issues_button: true
+  extra_navbar: "" # Will be displayed underneath the left navbar. This setting overrides the default 'powered by Jupyter Book'
+  comments:
+    hypothesis: true # Hypothesis for comments
+
+
+# Sphinx, for html formatting. Needs checking version.
+# Mathjax config allows us to define tex macros. Note that we need to escape the \ in a latex math command with an extra \.
+# I have no idea what the html_js_files link does (TODO!). See https://cdnjs.com/libraries/require.js and  https://cdnjs.cloudflare.com
+# Unfortunately, the mathjax3_config loader options break (!) mathjax for markdown files that have a jupytext yaml block. But not loading prevents us from using the physics or boldmatch packages. Clearly this is a bug, needs reporting.
+# The bibtex_reference_style is 'Use numeric reference labels, citations are sorted by order of appearance.' Alternatives include alpha, plain, and unsrtalpha. See https://jupyterbook.org/en/stable/content/citations.html
+# We don't use this option as we go for local references instead, adding them to individual 'chapter' pages.
+# The sphinx_proof extension requires installing the sphinx-proof package, see https://jupyterbook.org/en/stable/content/proof.html
+# Likewise, the sphinx_exercise requires installing the sphinx-exercise package.
+# The local extension applet.py allows us to include applets (developed by Julia van de Kris and Abel de Bruijn for the linear algebra open textbook; source https://gist.github.com/yustarandomname/2be0f45758d0fe3d2d765da4e621a547). See https://jupyterbook.org/en/stable/advanced/sphinx.html#local-sphinx-extensions about the local extensions.
+sphinx:
+  config:
+    language: en
+    # See https://github.com/executablebooks/jupyter-book/issues/1950
+    suppress_warnings: ["mystnb.unknown_mime_type"]
+    # html_js_files necessary for interactive plot (plotly) in ch. 2, but breaks applet in ch. 3. cf. https://jupyterbook.org/en/stable/interactive/interactive.html?highlight=html_js_files#plotly
+    html_js_files:
+    - https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js
+    - https://cdn.jsdelivr.net/npm/loading-attribute-polyfill@2.1.0/dist/loading-attribute-polyfill.min.js
+    mathjax3_config:
+      #loader: {load: ['[tex]/ams', '[tex]/physics', '[tex]/boldsymbol']}
+      loader: {load: ['[tex]/autoload', '[tex]/ams']}
+      tex:
+        packages: {'[+]': ['autoload', 'ams', 'physics', 'boldsymbol']}
+        tags: 'ams'
+        macros:
+          "kB" : "k_\\mathrm{B}"
+          #"bm" : "\\boldsymbol"
+          #"bm": "\\vb*"
+          "bm": "\\mathbf"
+          "inprod" : "\\innerproduct"
+          "diff" : "\\pdv"
+    html_theme_options:
+      # See https://sphinx-book-theme.readthedocs.io/en/stable/reference.html
+      # This is double - needed if we also have the light/dark logo.
+      repository_url: https://gitlab.tudelft.nl/opentextbooks/open-textbooks-demonstration/
+      use_repository_button: True
+      use_edit_page_button: true
+
+      home_page_in_toc: true
+
+      logo:
+        image_light: TUDelft.svg
+        image_dark: TUDelft-dark.svg
+#    bibtex_reference_style: unsrt
+  local_extensions: # For the applet inclusion.
+    applet: _ext/
+  extra_extensions:
+    - sphinx_proof
+    - sphinx_exercise
+    - sphinx_togglebutton
+#    - sphinx_tojupyter
+
+
