@@ -81,16 +81,16 @@ sphinx:
         packages: {'[+]': ['autoload', 'ams', 'physics', 'boldsymbol']}
         tags: 'ams'
         macros:
-          "kB" : "k_\\mathrm{B}"
-          #"bm" : "\\boldsymbol"
-          #"bm": "\\vb*"
-          "bm": "\\mathbf"
-          "inprod" : "\\innerproduct"
-          "diff" : "\\pdv"
+          "kB" : "k_\\mathrm{B}" # Boltzmann constant
+          "bm" : "\\boldsymbol"   # This is the bold vector command from the physics package.
+          "bm": "\\vb*" # This is the bold vector command from the physics package.
+          "bm": "\\mathbf" # This is the bold vector command from the physics package.
+          "inprod" : "\\innerproduct" # Inner product
+          "diff" : "\\pdv" # Partial derivative
     html_theme_options:
       # See https://sphinx-book-theme.readthedocs.io/en/stable/reference.html
       # This is double - needed if we also have the light/dark logo.
-      repository_url: https://flashshare.github.io/open-textbooks/
+      repository_url: https://github.com/flashshare/open-textbooks/
       use_repository_button: false
       use_edit_page_button: false
 
@@ -102,10 +102,10 @@ sphinx:
 #    bibtex_reference_style: unsrt
   local_extensions: # For the applet inclusion.
     applet: _ext/
-  extra_extensions:
-    - sphinx_proof
-    - sphinx_exercise
-    - sphinx_togglebutton
-#    - sphinx_tojupyter
+  # extra_extensions:
+  #   - sphinx_proof
+  #   - sphinx_exercise
+  #   - sphinx_togglebutton
+  #   - sphinx_tojupyter
 
 
