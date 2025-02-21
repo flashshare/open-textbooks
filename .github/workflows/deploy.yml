@@ -1,0 +1,78 @@
+name: deploy
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:  # Allows manual triggering
+
+jobs:
+  deploy-book:
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+
+    steps:
+    - name: Check out repository
+      uses: actions/checkout@v4
+
+    #
+    # ✅ CACHING TO SPEED UP BUILDS
+    #
+    - name: Cache Python Packages
+      uses: actions/cache@v3
+      with:
+        path: ~/.cache/pip
+        key: python-packages-${{ runner.os }}-${{ hashFiles('docs/requirements.txt') }}
+        restore-keys: |
+          python-packages-${{ runner.os }}-
+
+    - name: Cache Quarto Extensions
+      uses: actions/cache@v3
+      with:
+        path: ~/.quarto
+        key: quarto-extensions-${{ runner.os }}
+        restore-keys: |
+          quarto-extensions-${{ runner.os }}
+
+    - name: Cache LaTeX (TinyTeX)
+      uses: actions/cache@v3
+      with:
+        path: ~/.TinyTeX
+        key: tinytex-${{ runner.os }}
+        restore-keys: |
+          tinytex-${{ runner.os }}
+
+    #
+    # ✅ SETUP PYTHON & INSTALL DEPENDENCIES
+    #
+    - name: Set up Python 3.11
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.11
+        cache: pip
+
+    - name: Install Python dependencies
+      run: |
+        pip install --upgrade pip
+        pip install -r docs/requirements.txt
+
+    #
+    # ✅ BUILD THE BOOK
+    #
+    - name: Build the book
+      run: |
+        jupyter-book build .
+
+    #
+    # ✅ GITHUB PAGES DEPLOYMENT
+    #
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: "docs/_build"
+
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4

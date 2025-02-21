@@ -1,0 +1,19 @@
+/* Making list items labeled by letters rather than numbers. */
+.exercise.admonition ol {
+    list-style-type: lower-alpha;
+}
+
+/* Remove the 'before' element in exercises (should be a pencil replacing the bell, but only gives a square and does not move the bell, see https://stackoverflow.com/questions/77227334/exercises-not-rendering-properly-in-sphinx-with-jupyter-book. */
+div.exercise p.admonition-title::before {
+    /*content: "\f303";*/
+    content: none;
+}
+
+/* Remove the underline from internal links. */
+a.internal, a.footnote-reference {
+    text-decoration: none;
+}
+
+a.internal:hover, a.footnote-reference:hover {
+    text-decoration-line: underline;
+}

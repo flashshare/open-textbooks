@@ -36,7 +36,7 @@ parse:
 
 # Information about where the book exists on the web. Note that this is overridden if we use a light/dark logo.
 repository:
-  url: https://gitlab.tudelft.nl/opentextbooks/open-textbooks-demonstration/  # Online location of your book
+  url: https://flashshare.github.io/open-textbooks/  # Online location of your book
   # path_to_book: docs  # Optional path to your book, relative to the repository root
   branch: master  # Which branch of the repository should be used when creating links (optional)
 
