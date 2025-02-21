@@ -46,12 +46,12 @@ repository:
 html:
   favicon: "content/images/favicon.ico"
   home_page_in_navbar: true
-  use_edit_page_button: true
-  use_repository_button: true
-  use_issues_button: true
+  use_edit_page_button: false
+  use_repository_button: false
+  use_issues_button: false
   extra_navbar: "" # Will be displayed underneath the left navbar. This setting overrides the default 'powered by Jupyter Book'
   comments:
-    hypothesis: true # Hypothesis for comments
+    hypothesis: false # Hypothesis for comments
 
 
 # Sphinx, for html formatting. Needs checking version.
