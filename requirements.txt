@@ -1,5 +1,6 @@
 jupyter-book
 numpy
+plotly
 scipy
 matplotlib
 myst_nb
