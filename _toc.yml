@@ -20,6 +20,7 @@ parts:
     numbered: True
     chapters:
     - file: content/Basic_animation_demo.ipynb
+    - file: content/Chapter-3.ipynb
   - caption: Software
     numbered: True
     chapters:
