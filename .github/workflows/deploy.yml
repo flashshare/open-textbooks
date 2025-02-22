@@ -17,9 +17,7 @@ jobs:
     - name: Check out repository
       uses: actions/checkout@v4
 
-    #
     # ✅ CACHING TO SPEED UP BUILDS
-    #
     - name: Cache Python Packages
       uses: actions/cache@v3
       with:
@@ -44,30 +42,30 @@ jobs:
         restore-keys: |
           tinytex-${{ runner.os }}
 
-    #
     # ✅ SETUP PYTHON & INSTALL DEPENDENCIES
-    #
     - name: Set up Python 3.11
       uses: actions/setup-python@v4
       with:
         python-version: 3.11
         cache: pip
 
+    # ✅ INSTALL NODE.JS
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'  # Specify the Node.js version required by Jupyter Book 2
+
     - name: Install Python dependencies
       run: |
         pip install --upgrade pip
-        pip install -r requirements.txt
+        pip install --upgrade -r requirements.txt  # Install latest versions, including pre-releases
 
-    #
     # ✅ BUILD THE BOOK
-    #
     - name: Build the book
       run: |
         jupyter-book build .
 
-    #
     # ✅ GITHUB PAGES DEPLOYMENT
-    #
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
       with:
