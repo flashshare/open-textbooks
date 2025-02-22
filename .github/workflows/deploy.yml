@@ -17,23 +17,25 @@ jobs:
     - name: Check out repository
       uses: actions/checkout@v4
 
+    # ✅ FFMPEG INSTALLATION
+    - name: Install FFmpeg
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y ffmpeg[1]
+
     # ✅ NODE.JS SETUP
     - name: Set up Node.js
       uses: actions/setup-node@v4
       with:
         node-version: '20.x'
-        cache: 'npm'[1][5]
+        cache: 'npm'
 
-    # ✅ INSTALL FFMPEG
-    - name: Set up FFmpeg
-      uses: FedericoCarboni/setup-ffmpeg@v3
-      
     # ✅ PYTHON SETUP AND CACHING
     - name: Cache Python Packages
       uses: actions/cache@v3
       with:
         path: ~/.cache/pip
-        key: minimal-deps-${{ runner.os }}-${{ hashFiles('requirements.txt') }}-jb2
+        key: minimal-deps-${{ runner.os }}-${{ hashFiles('requirements.txt') }}-jb2-ffmpeg
         restore-keys: |
           minimal-deps-${{ runner.os }}-${{ hashFiles('requirements.txt') }}-
 
@@ -48,8 +50,9 @@ jobs:
         python -m pip install --upgrade -r requirements.txt
 
     # ✅ VERSION CHECKS
-    - name: Verify versions
+    - name: Verify installations
       run: |
+        ffmpeg -version
         node --version
         jupyter-book --version
 

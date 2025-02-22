@@ -1,4 +1,4 @@
-# Chapter 7: Model Applications and Limitations
+# Model Applications and Limitations
 
 ## Learning Objectives
 After completing this chapter, you will be able to:

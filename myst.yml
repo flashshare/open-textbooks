@@ -12,7 +12,7 @@ project:
   exports:
     - format: pdf
       template: plain_latex_book
-      output: exports/book.pdf
+      output: book.pdf
   toc:
     - file: index.md
     - title: Demonstrating markdown files
