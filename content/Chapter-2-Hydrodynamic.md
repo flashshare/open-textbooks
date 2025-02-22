@@ -2,7 +2,9 @@
 
 ## Learning Objectives
 
-After completing this chapter, you will be able to: - Understand the derivation and limitations of the Saint-Venant equations - Identify when 1D assumptions are valid or break down - Apply appropriate boundary conditions for tidal systems - Recognize potential numerical instabilities
+After completing this chapter, you will be able to: - Understand the derivation and limitations of the Saint-Venant equations - Identify when 1D assumptions are valid or break down - Apply appropriate boundary conditions for tidal systems - Recognize potential numerical instabilities [Introduction to the C-GEM Model](../Chapter-1-Introduction.md)
+
+[[Chapter-1-Introduction]]
 
 ## Theoretical Background
 
