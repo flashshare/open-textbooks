@@ -1,8 +1,9 @@
-jupyter-book>=2.0.0a2
+jupyter-book
 numpy
 plotly
 scipy
 matplotlib
+ffmpeg
 myst_nb
 sphinx-exercise
 sphinx-proof

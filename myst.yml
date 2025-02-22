@@ -1,0 +1,47 @@
+# See docs at: https://mystmd.org/guide/frontmatter
+version: 1
+project:
+  id: e2e5d2af-06bb-40b4-9c7f-627a5eb28dfe
+  title: Demo documentation
+  description: Demo documentation
+  # keywords: []
+  # authors: []
+  github: https://github.com/flashshare/open-textbooks
+  bibliography:
+    - references.bib
+  exports:
+    - format: pdf
+      template: plain_latex_book
+      output: exports/book.pdf
+  toc:
+    - file: index.md
+    - title: Demonstrating markdown files
+      children:
+        - file: content\markdown.md
+        - file: content\interactivemarkdown.md
+        - file: content\mechanicsforces.md
+        - file: content\vectors.md
+        - file: content\jupyterquiz.md
+    - title: Demonstrating Jupyter notebooks
+      children:
+        - file: content\Basic_animation_demo.ipynb
+        - file: content\Chapter-3.ipynb
+    - title: Water quality modelling
+      children:
+        - file: content\Modelling\Chapter-1-Introduction.md
+        - file: content\Modelling\Chapter-2-Hydrodynamic.md
+        - file: content\Modelling\Chapter-3-Numerical.md
+        - file: content\Modelling\Chapter-4-Transports.md
+        - file: content\Modelling\Chapter-5-Biogeochemical.md
+        - file: content\Modelling\Chapter-6-Implementation.md
+        - file: content\Modelling\Chapter-7-Application.md
+    - title: Index & credits
+      children:
+        - file: content\credits.md
+        - file: genindex.md
+    
+site:
+  template: book-theme
+  options:
+    favicon: _static/favicon.ico
+    logo: _static/cover.png

@@ -21,10 +21,16 @@ parts:
     chapters:
     - file: content/Basic_animation_demo.ipynb
     - file: content/Chapter-3.ipynb
-  - caption: Software
+  - caption: Water quality modelling
     numbered: True
     chapters:
-    - file: content/git
+    - file: content\Modelling\Chapter-1-Introduction.md
+    - file: content\Modelling\Chapter-2-Hydrodynamic.md
+    - file: content\Modelling\Chapter-3-Numerical.md
+    - file: content\Modelling\Chapter-4-Transports.md
+    - file: content\Modelling\Chapter-5-Biogeochemical.md
+    - file: content\Modelling\Chapter-6-Implementation.md
+    - file: content\Modelling\Chapter-7-Application.md
   - caption: Index & credits
     chapters:
     - file: content/credits
