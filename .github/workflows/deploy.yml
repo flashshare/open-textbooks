@@ -21,7 +21,7 @@ jobs:
     - name: Install FFmpeg
       run: |
         sudo apt-get update
-        sudo apt-get install -y ffmpeg[1]
+        sudo apt-get install -y ffmpeg
 
     # ✅ NODE.JS SETUP
     - name: Set up Node.js

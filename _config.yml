@@ -76,7 +76,7 @@ sphinx:
     mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
     mathjax3_config:
       # loader: {load: ['[tex]/ams', '[tex]/physics', '[tex]/boldsymbol']}
-      # loader: {load: ['[tex]/autoload', '[tex]/ams']}
+      loader: {load: ['[tex]/autoload', '[tex]/ams']}
       tex:
         packages: {'[+]': ['autoload', 'ams', 'physics', 'boldsymbol']}
         tags: 'ams'
